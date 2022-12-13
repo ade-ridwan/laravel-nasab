@@ -9,6 +9,8 @@ class Person extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'gender', 'parent_id', 'mother_id', 'father_id'];
+
     public function couples()
     {
         return $this->hasMany(Couple::class, 'husband_id');

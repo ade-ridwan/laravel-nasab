@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ChildController;
+use App\Http\Controllers\CoupleController;
+use App\Http\Controllers\NasabController;
 use App\Http\Controllers\TreeController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
 Route::get('/', [TreeController::class, 'getChilds']);
+
+
+Route::resource('/child', ChildController::class);
+Route::resource('/couple', CoupleController::class);

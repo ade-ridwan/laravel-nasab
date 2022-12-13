@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('husband_id');
             $table->foreignId('wife_id');
-            $table->date('date_weeding')->nullable();
+            $table->date('date_wedding')->nullable();
             $table->timestamps();
         });
     }

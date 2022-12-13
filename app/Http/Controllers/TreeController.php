@@ -25,7 +25,7 @@ class TreeController extends Controller
     public function getChilds(Request $request)
     {
         $person = Person::with(['childs', 'couples'])->get();
-
+        $personActive = Person::findOrFail($request->start_id ?? 1);
         //$this->getGraphData(1, 3);
 
         $this->getGraphDataUpward($request->start_id ?? 1);
@@ -48,6 +48,7 @@ class TreeController extends Controller
             'unions' => $this->unions,
             'tree' => json_encode(TreeResource::collection($tree)),
             'links' => $this->links,
+            'personActive' => $personActive,
         ];
 
         //dd($data);
